@@ -1,0 +1,99 @@
+﻿@model AboutModel
+
+@section Styles{
+    <link rel="stylesheet" href="~/css/Home/home.css" asp-append-version="true" />
+}
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="texto-titulo">
+            <p>Sobre o BlastoiseApp</p>
+        </div>
+        <p class="text-start fs-4 text">
+            Bem-vindo ao nosso site, um espaço feito especialmente para fãs de Pokémons e de tecnologia!
+        </P>
+        <p class="text-start fs-5">
+            Aqui, você tem total controle sobre sua própria coleção de Pokémons. Você pode criar, visualizar, atualizar e excluir Pokémons de forma prática e divertida. Tudo isso em uma plataforma intuitiva, pensada para facilitar sua navegação e deixar a experiência o mais agradável possível.
+        </p>    
+    </div>
+
+    <div class="col-lg-6">
+        <img src="https://i.pinimg.com/736x/81/d5/e0/81d5e0ec69df1765ad7b023e4cb62f84.jpg" class="img-fluid" alt="Pokemon">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="position-relative d-inline-block">
+            <img src="https://corporate.pokemon.com/inclusion-e5c9974044dcbcdfab57b3370da91652.jpg" class="img-fluid mt-5 rounded-3" alt="Imagem base">
+        </div>
+    </div>
+
+    <div class="col-lg-7">
+        <p class="m-5 pt-5 fs-5 fw-bolder text-danger">
+            O universo Pokémon une pessoas ao redor do mundo, sendo querido por crianças, adultos e treinadores de todas as idades. Essas criaturas extraordinárias ultrapassaram fronteiras e barreiras linguísticas, conquistando o carinho de milhões ao longo de mais de 25 anos.
+        </p>
+    </div>
+</div>
+
+<div class="my-5"></div>
+
+<div class="row">
+    <div class="col">
+        <div class="d-flex p-4 bg-warning shadow">
+            <p class="fst-italic fs-5 fw-bold">Pokémon foi lançado no Japão em 1996 e hoje é um dos títulos de entretenimento infantil mais populares do mundo.<br />Conheça um pouco da história com os seus principais marcos da franquia Pokémon, desde sua criação até os dias atuais:</p>
+        </div>
+    </div>
+</div>
+
+<div class="my-5"></div>
+
+<div class="row">
+    <div class="col-lg-5">
+        <div class="text-center mt-3">
+            <img src="https://i.pinimg.com/736x/ea/f3/68/eaf368f234c042f2225aa6d6e114c986.jpg" class="img-fluid" alt="Pokemons">
+        </div>
+    </div>
+
+    <div class="col-lg-7 mt-5">
+        <div class="container">
+            <div class="timeline">
+                @foreach (var sobre in Model.ListaTimeline)
+                {
+                    <div class="card border-warning border-2 mb-3">
+                        <div class="card-body text-dark">
+                            <h5 class="card-title">@sobre.TituloPrincipal</h5>
+                            <p class="card-text">@sobre.Paragrafo</p>
+                        </div>
+                    </div>
+                }
+                    
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-11 mx-auto">
+        <div class="text-center m-4 pt-5 fs-3 fw-bolder">Perguntas Frequentes</div>
+            <div class="accordion" id="accordionExample">
+
+            @for (int i = 0; i < Model.ListaPerguntasERespostas.Count; i++)
+                {
+                    <div class="accordion-item">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-@i" aria-expanded="false" aria-controls="collapse-@i">
+                            @Model.ListaPerguntasERespostas[i].Perguntas
+                            </button>
+                        </h2>
+                    <div id="collapse-@i" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                        @Model.ListaPerguntasERespostas[i].Respostas
+                        </div>
+                    </div>
+                    </div>
+                }
+            </div>
+    </div>
+</div>

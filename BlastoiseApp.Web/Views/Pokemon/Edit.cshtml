@@ -1,0 +1,27 @@
+﻿@model UpdatePokemonDTO
+
+@{
+    ViewData["Title"] = "Criar Pokémon";
+}
+
+
+<form asp-controller="Pokemon" asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control">
+        <span class="text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Code" class="form-label"></label>
+        <input asp-for="Code" class="form-control">
+        <span class="text-danger" asp-validation-for="Code"></span>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="Active"  checked="@Model.Active" class="form-check-input">
+        <label asp-for="Active" class="form-check-label"></label>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a class="btn btn-danger" role="button" asp-controller="Pokemon" asp-action="Index">Voltar</a>
+</form>

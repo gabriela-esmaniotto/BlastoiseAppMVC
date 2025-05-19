@@ -1,0 +1,6 @@
+@BlastoiseApp.Hangfire_HostAddress = http://localhost:5079
+
+GET {{BlastoiseApp.Hangfire_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

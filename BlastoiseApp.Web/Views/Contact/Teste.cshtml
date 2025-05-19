@@ -1,0 +1,13 @@
+﻿@model TesteModel 
+
+
+<h1>Olá, @Model.Nome</h1>
+<p>Você tem @Model.Idade anos</p>
+
+<h2>Habilidades: </h2>
+<ul>
+    @foreach (var habilidade in Model.Habilidades)
+    {
+        <li>@habilidade</li>
+    }
+</ul>

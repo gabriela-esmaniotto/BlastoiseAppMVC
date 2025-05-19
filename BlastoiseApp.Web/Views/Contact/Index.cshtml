@@ -1,0 +1,25 @@
+﻿@model BlastoiseApp.Domain.DTOs.Contacts.CreateContactDTO
+
+<div class="row">
+    <div class="col-lg-6">
+        <h2 class="fw-semibold">Envie sua mensagem</h2>
+        <div class="my-4"></div>
+        <p class="fs-5">
+            Preencha os dados abaixo:
+        </p>
+        <form asp-action="SendContact" method="post"> 
+                <div class="form-group">
+                    <label asp-for="Name"></label>
+                    <input class="form-control shadow-none mb-3" placeholder="Seu nome" asp-for="Name">
+
+                    <label asp-for="Email"></label>
+                    <input type="email" class="form-control shadow-none mb-3" placeholder="Seu email" asp-for="Email">
+
+                    <label asp-for="Message"></label>
+                    <textarea class="form-control shadow-none mb-3" rows="4" placeholder="Deixe sua dúvida" asp-for="Message"></textarea>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </div>
+         </form>
+    </div>
+</div>

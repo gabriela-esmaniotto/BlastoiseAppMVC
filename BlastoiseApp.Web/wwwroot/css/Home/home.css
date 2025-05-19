@@ -1,0 +1,53 @@
+﻿.texto-home {
+	margin-top: 1em;
+	text-align: center;
+	font-size: 3rem;
+	font-weight: bold;
+	color: darkred
+}
+
+.texto-meio {
+	color: black;
+	font-weight: bold;
+	font-size: 25px;
+	margin-top: 15px;
+	text-align: center;
+}
+
+.carrossel-pokemon img {
+	height: 300px;
+}
+
+.texto-titulo {
+	padding-top: 150px;
+	font-weight: bold;
+	font-size: 40px;
+	color: darkred;
+	margin-block-end: 30px;
+}
+
+.linha-tempo {
+	position: relative;
+	margin-left: 30px;
+	padding-left: 20px;
+	border-left: 2px solid #ccc;
+	text-align: center;
+}
+
+.timeline {
+	position: relative;
+	margin-left: 40px;
+	padding-left: 40px;
+	border-left: 3px solid #ccc;
+	width: auto;
+}
+
+
+.accordion-button:not(.collapsed) {
+	background-color: #a41313;
+	color:white;
+}
+
+*:focus {
+	box-shadow: none !important;
+}
