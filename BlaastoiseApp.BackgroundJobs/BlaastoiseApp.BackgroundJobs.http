@@ -1,6 +1,0 @@
-@BlaastoiseApp.BackgroundJobs_HostAddress = http://localhost:5155
-
-GET {{BlaastoiseApp.BackgroundJobs_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###
