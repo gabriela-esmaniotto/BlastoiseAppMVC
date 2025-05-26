@@ -1,76 +1,27 @@
+using BlastoiseApp.Domain.DTOs.Pokemons;
+
 namespace BlastoiseApp.Web.Controllers
 {
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
+		private readonly IPokemonService _pokemonService;
 
-		public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger, IPokemonService pokemonService)
 		{
 			_logger = logger;
+			_pokemonService = pokemonService;
 		}
 
-		public IActionResult Index()
+		public async Task<IActionResult> Index()
 		{
 
 			HomeModel model = new HomeModel();
 
 			model.TextoInicio = "Sua Aventura Pokemón Começa Aqui";
-			model.ListaPokemon = new List<PokemonHomeModel>(); 
-			PokemonHomeModel bulbasaur = new PokemonHomeModel();
-			bulbasaur.Nome = "Bulbasaur";
-			bulbasaur.Codigo = "001";
-			bulbasaur.LinkImagem = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/001.png";
-			model.ListaPokemon.Add(bulbasaur);
 
-			PokemonHomeModel ivysaur = new PokemonHomeModel();
-			ivysaur.Nome = "Ivysaur";
-			ivysaur.Codigo = "002";
-			ivysaur.LinkImagem = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_TKxwSvCZiKFfyQoVYLNWshaSMvasKkz3rA&s";
-			model.ListaPokemon.Add(ivysaur);
-
-			PokemonHomeModel venusaur = new PokemonHomeModel();
-			venusaur.Nome = "Venusaur";
-			venusaur.Codigo = "003";
-			venusaur.LinkImagem = "https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/003.png";
-			model.ListaPokemon.Add(venusaur);
-
-			PokemonHomeModel charmander = new PokemonHomeModel();
-			charmander.Nome = "Charmander";
-			charmander.Codigo = "004";
-			charmander.LinkImagem = "https://i.pinimg.com/736x/fd/9d/8a/fd9d8ab48dec6ab12cbbf31edd92040b.jpg";
-			model.ListaPokemon.Add(charmander);
-
-			PokemonHomeModel charmeleon = new PokemonHomeModel();
-			charmeleon.Nome = "Charmeleon";
-			charmeleon.Codigo = "005";
-			charmeleon.LinkImagem = "https://img.pokemondb.net/artwork/large/charmeleon.jpg";
-			model.ListaPokemon.Add(charmeleon);
-
-			PokemonHomeModel charizard = new PokemonHomeModel();
-			charizard.Nome = "Charizard";
-			charizard.Codigo = "006";
-			charizard.LinkImagem = "https://i.pinimg.com/736x/84/0a/33/840a33ff2fd112ee82d1413a7af18a85.jpg";
-			model.ListaPokemon.Add(charizard);
-
-			PokemonHomeModel squirtle = new PokemonHomeModel();
-			squirtle.Nome = "Squirtle";
-			squirtle.Codigo = "007";
-			squirtle.LinkImagem = "https://i.pinimg.com/736x/b6/1e/b4/b61eb48863d284064dd8f114058f7162.jpg";
-			model.ListaPokemon.Add(squirtle);
-
-			PokemonHomeModel wartortle = new PokemonHomeModel();
-			wartortle.Nome = "Wartortle";
-			wartortle.Codigo = "008";
-			wartortle.LinkImagem = "https://i.pinimg.com/736x/2a/6e/65/2a6e65da5515583b6f087870facf07aa.jpg";
-			model.ListaPokemon.Add(wartortle);
-
-			PokemonHomeModel blastoise = new PokemonHomeModel();
-			blastoise.Nome = "Blastoise";
-			blastoise.Codigo = "009";
-			blastoise.LinkImagem = "https://i.pinimg.com/736x/30/bc/3b/30bc3b60fa9fc9588390f45c4af1680c.jpg";
-			model.ListaPokemon.Add(blastoise);
-
-
+			List<PokemonListDTO> pokemons = await _pokemonService.GetAllAsync();
+			model.ListaPokemon = pokemons;
 
 			model.ListaCard = new List<CardHome>();
 

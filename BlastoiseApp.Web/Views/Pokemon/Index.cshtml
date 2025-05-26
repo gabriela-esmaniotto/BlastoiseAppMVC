@@ -13,9 +13,11 @@
     <a class="btn btn-primary mb-2" role="button" asp-controller="Pokemon" asp-action="Create">Novo Pokémon</a>
 </div>
 
+
 <table class="table table-striped table-dark">
     <thead>
         <tr>
+            <th>Imagem</th>
             <th>Nome</th>
             <th class="text-center">Código</th>
             <th class="text-center">Ativo</th>
@@ -39,6 +41,9 @@
         {
 
             <tr class="align-middle">
+                <td>
+                    <img src="@pokemon.LinkImage" width="50" />
+                </td>
                 <td>
                     @pokemon.Name
                 </td>

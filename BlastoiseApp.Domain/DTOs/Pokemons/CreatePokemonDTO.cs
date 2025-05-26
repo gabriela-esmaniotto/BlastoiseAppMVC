@@ -16,5 +16,9 @@
 		[Required]
 		[Display(Name = "Ativo")]
 		public bool Active { get; set; }
+
+		[Display(Name = "Link da Imagem")]
+		public string? LinkImage { get; set; }
+		
 	}
 }

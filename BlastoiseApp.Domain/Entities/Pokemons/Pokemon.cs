@@ -5,5 +5,6 @@
 		[MaxLength(100)]
 		public string Name { get; private set; } = null!;
 		public int Code { get; private set; }
+		public string? LinkImage { get; private set; }
 	}
 }

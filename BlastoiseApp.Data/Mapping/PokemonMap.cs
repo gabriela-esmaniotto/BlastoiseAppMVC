@@ -9,6 +9,7 @@ namespace BlastoiseApp.Data.Mapping
 			builder.HasKey(x => x.Id);
 			builder.Property(x => x.Name).IsRequired().HasComment("Nome do pokémon");
 			builder.Property(x => x.Code).IsRequired().HasComment("Código do pokémon");
+			builder.Property(x => x.LinkImage).IsRequired(false).HasComment("Link da imagem do pokémon");
 		}
 	}
 }
