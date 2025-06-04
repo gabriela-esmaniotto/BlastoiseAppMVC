@@ -1,5 +1,6 @@
 ﻿using BlastoiseApp.Domain.DTOs.Contacts;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Query.Internal;
 using System.Threading.Tasks;
 
 namespace BlastoiseApp.Web.Controllers
@@ -16,13 +17,46 @@ namespace BlastoiseApp.Web.Controllers
 
 		public IActionResult Index()
 		{
+			int valorSoma1 = 5;
+
+			int valorSoma2 = 10;
+
+			int resultadoSoma = valorSoma1 + valorSoma2;
+
+			int valorMulti1 = 2;
+
+			int valorMulti2 = 9;
+
+			int resultadoMulti = valorMulti1 * valorMulti2;
+
+			int valorSub1 = 12;
+
+			int valorSub2 = 9;
+
+			int resultadoSub = valorSub1 - valorSub2;
+
 			return View();
 		}
-		[HttpPost]
-		public async Task<IActionResult> SendContact(CreateContactDTO model)
+
+		private static void Subtrair()
 		{
-			await _contactService.CreateAsync(model);
-			return RedirectToAction("Index");
+			int valorSub1 = 12;
+			int valorSub2 = 9;
+			int resultadoSub = valorSub1 - valorSub2;
+		}
+
+		private static void Multiplicar()
+		{
+			int valorMulti1 = 2;
+			int valorMulti2 = 9;
+			int resultadoMulti = valorMulti1 * valorMulti2;
+		}
+
+		private static void Somar()
+		{
+			int valorSoma1 = 5;
+			int valorSoma2 = 10;
+			int resultadoSoma = valorSoma1 + valorSoma2;
 		}
 
 		public IActionResult Teste()
@@ -34,8 +68,36 @@ namespace BlastoiseApp.Web.Controllers
 			model.Habilidades.Add("Python");
 			model.Habilidades.Add("Java");
 			model.Habilidades.Add("HTML");
-			
-			return View(model);
+
+			return RedirectToAction("Index", "Pokemon");
+			//return View("Teste", model);
+		}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		[HttpPost]
+		public async Task<IActionResult> SendContact(CreateContactDTO model)
+		{
+			await _contactService.CreateAsync(model);
+			return RedirectToAction("Index");
 		}
 
 	}

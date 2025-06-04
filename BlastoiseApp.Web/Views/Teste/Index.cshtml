@@ -1,0 +1,20 @@
+﻿@model BlastoiseApp.Web.Models.CadastroUsuarioModel
+
+<form asp-controller="Teste" asp-action="SalvarUsuario" method="post">
+    <div class="mb-3">
+        <label class="form-label" asp-for="NomeCompleto"></label>
+        <input class="form-control" asp-for="NomeCompleto"/>
+        <span class="text-danger" asp-validation-for="NomeCompleto"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Email"></label>
+        <input class="form-control" asp-for="Email">
+        <span class="text-danger" asp-validation-for="Email"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="Senha"></label>
+        <input class="form-control" asp-for="Senha">
+        <span class="text-danger" asp-validation-for="Senha"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Cadastrar</button>
+</form>
